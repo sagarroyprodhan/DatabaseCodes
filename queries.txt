@@ -1,0 +1,9 @@
+1. db.test_collection.find({"videoInfo.snippet.channelId":"UC2GXNqco-k7fwg2SMM6SAzQ"}).count();
+
+2. db.test_collection.find({"videoInfo.statistics.commentCount":{$gt:15}}).count();
+
+3. db.test_collection.find({"videoInfo.statistics.commentCount":{$lt:10000}}).count() - db.test_collection.find({"videoInfo.statistics.commentCount":{$lte:2000}}).count();
+
+4. db.test_collection.find({"videoInfo.snippet.title":{$regex:"india",$options:"$i"}}).count();
+
+5. db.test_collection.find().limit(5).sort({"videoInfo.statistics.viewCount":1}).forEach(function(doc){ var count = doc['videoInfo']['id'];print(count);});
